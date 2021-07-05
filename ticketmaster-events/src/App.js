@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Header searchTerm={searchTerm} />
-      <Search />
+      <Search setSearchTerm={setSearchTerm}/>
       <EventList searchTerm={searchTerm} />
     </div>
   );

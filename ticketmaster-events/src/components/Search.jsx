@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
-const Search = () => {
+const Search = ({setSearchTerm}) => {
   const [newSearchTerm, setNewSearchTerm] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setSearchTerm(newSearchTerm);
+    setNewSearchTerm('');
 
     console.log("submitted", newSearchTerm);
   };
