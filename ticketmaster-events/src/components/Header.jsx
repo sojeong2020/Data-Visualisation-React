@@ -2,8 +2,8 @@ import React from "react";
 
 const header = ({ searchTerm }) => {
   return (
-    <div>
-      <h1>Ticketmaster events for: {searchTerm}</h1>
+    <div className="header-section">
+      <h1>Ticketmaster Events For {searchTerm}</h1>
     </div>
   );
 };

@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
 .App {
   text-align: center;
+  margin: 0;
+  font-family: "PT Sans", sans-serif;
 }
 
 .App-logo {
@@ -35,4 +38,72 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+ul {
+  list-style: none;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  align-self: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.event-img {
+  width: 250px;
+  height: 200px;
+  flex-grow: 1;
+}
+
+li {
+  margin: 0 20px;
+}
+
+.header-section {
+  background-color: rgb(65, 168, 182);
+  color: white;
+  padding: 5px;
+}
+
+.search-section {
+  padding: 140px;
+  background: linear-gradient(
+      0deg,
+      rgba(19, 106, 65, 0.3),
+      rgba(19, 106, 65, 0.3)
+    ),
+    url("./images/tony-pham-FUmDe-Bx1LA-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+}
+.search-label {
+  font-size: 1.5rem;
+}
+button {
+  margin-left: 8px;
+  padding: 5px;
+  background-color: #0a8466;
+  color: white;
+  border-radius: 5px;
+  border: solid 1px #055742;
+}
+
+button:hover {
+  background-color: #4eba9f;
+}
+
+input {
+  margin-left: 8px;
+  padding: 5px;
+}
+
+.event-list {
+  background-color: rgb(65, 168, 182);
+  color: white;
 }
