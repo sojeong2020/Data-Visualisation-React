@@ -15,7 +15,7 @@ const Search = ({ setSearchTerm }) => {
     <div id="overlay" className="search-section">
       <form onSubmit={handleSubmit}>
         <label className="search-label">
-          Search for events:
+          Search for events at your favourite venue:
           <input
             value={newSearchTerm}
             onChange={(event) => setNewSearchTerm(event.target.value)}

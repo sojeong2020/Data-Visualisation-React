@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Location from "./Location";
 const EventList = ({ searchTerm }) => {
   // const [events, setEvents] = useState([]);
   const [venues, setVenues] = useState([]);
@@ -20,15 +20,13 @@ const EventList = ({ searchTerm }) => {
   // }, [searchTerm]);
 
   useEffect(() => {
-    console.log("serchTerm changed,fetching newEvent...");
     fetch(
-      `https://app.ticketmaster.com/discovery/v2/venues.json?keyword=${searchTerm}&?sort=location&apikey=7L2L71HQFMHwagsyDn90II4zoDaaIC8H#`
+      `https://app.ticketmaster.com/discovery/v2/venues.json?keyword=${searchTerm}&apikey=7L2L71HQFMHwagsyDn90II4zoDaaIC8H#`
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data._embedded.venues);
-
         setVenues(data._embedded.venues);
+        console.log(data._embedded.venues.splice(0, 6));
         setIsLoading(false);
       });
   }, [searchTerm]);
@@ -36,36 +34,21 @@ const EventList = ({ searchTerm }) => {
   if (isloading) return <p>Loading...</p>;
   return (
     <div className="event-list">
-      <ul className="container">
-        {venues.map(({ id, name, images ,location}) => {
-          console.log(images,"images")
-           if (location !== undefined && images !== undefined){
+      <ul className="container leaflet-container">
+        {venues.splice(0, 6).map(({ id, name, location, city }) => {
+          if (location !== undefined) {
             return (
               <li key={id}>
                 <h2>{name}</h2>
-                <img
-                  className="event-img"
-                  src={images.url}
-                  alt={`${name} cover`}
-                ></img>
-                <p>{location.latitude}, {location.longitude}</p>
-                </li>
+                <p>{city.name}</p>
+                <div>
+                  <Location location={location} id={id} />
+                </div>
+              </li>
             );
-           }else if( images === undefined && location === undefined )  {
-
-            return (
-              <li key={id}>
-                <h2>{name}</h2>
-               
-                <p>location not available</p>
-                </li>
-            );
-           }else if(images !== undefined && location === undefined){
-             return (
-               
-             )
-           }
-          
+          } else {
+            return <div></div>;
+          }
         })}
       </ul>
     </div>
