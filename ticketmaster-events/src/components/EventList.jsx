@@ -38,7 +38,7 @@ const EventList = ({ searchTerm }) => {
         {venues.splice(0, 6).map(({ id, name, location, city }) => {
           if (location !== undefined) {
             return (
-              <li key={id}>
+              <li className="events-details" key={id}>
                 <h2>{name}</h2>
                 <p>{city.name}</p>
                 <div>
