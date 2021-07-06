@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Location from "./Location";
 
 const EventList = ({ searchTerm }) => {
   // const [events, setEvents] = useState([]);
@@ -38,41 +37,35 @@ const EventList = ({ searchTerm }) => {
   return (
     <div className="event-list">
       <ul className="container">
-        {venues.map(({ id, name, images }) => {
-          return (
-            <li key={id}>
-              <h2>{name}</h2>
-              <img
-                className="event-img"
-                src={images[0].url}
-                alt={`${name} cover`}
-              ></img>
-              <p>
-                <ul>
-                  {venues.map(({ id, location }) => {
-                    if (location !== undefined) {
-                      console.log(location.latitude, "here is sgndkfjgn");
+        {venues.map(({ id, name, images ,location}) => {
+          console.log(images,"images")
+           if (location !== undefined && images !== undefined){
+            return (
+              <li key={id}>
+                <h2>{name}</h2>
+                <img
+                  className="event-img"
+                  src={images.url}
+                  alt={`${name} cover`}
+                ></img>
+                <p>{location.latitude}, {location.longitude}</p>
+                </li>
+            );
+           }else if( images === undefined && location === undefined )  {
 
-                      return (
-                        <li key={id}>
-                          <p>
-                            {location.latitude}, {location.longitude}
-                          </p>
-                        </li>
-                      );
-                    } else {
-                      return (
-                        <li ley={id}>
-                          <p>No location available</p>
-                        </li>
-                      );
-                    }
-                  })}
-                </ul>
-                ;
-              </p>
-            </li>
-          );
+            return (
+              <li key={id}>
+                <h2>{name}</h2>
+               
+                <p>location not available</p>
+                </li>
+            );
+           }else if(images !== undefined && location === undefined){
+             return (
+               
+             )
+           }
+          
         })}
       </ul>
     </div>
