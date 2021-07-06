@@ -71,11 +71,7 @@ li {
 
 .search-section {
   padding: 140px;
-  background: linear-gradient(
-      0deg,
-      rgba(19, 106, 65, 0.3),
-      rgba(19, 106, 65, 0.3)
-    ),
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("./images/tony-pham-FUmDe-Bx1LA-unsplash.jpg");
   background-size: cover;
   background-repeat: no-repeat;

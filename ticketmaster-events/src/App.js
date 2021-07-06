@@ -5,7 +5,7 @@ import Search from "./components/Search";
 import EventList from "./components/EventList";
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("Dua Lipa");
+  const [searchTerm, setSearchTerm] = useState("Comedy");
   return (
     <div className="App">
       <Header searchTerm={searchTerm} />
